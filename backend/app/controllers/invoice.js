@@ -63,7 +63,7 @@ exports.generatePDF = async (req, res) => {
       `inline; filename=invoice_${invoice.invoiceNumber}.pdf`
     );
 
-    // Add invoice data to the PDF (customize as needed)
+    // Add invoice data to the PDF 
     doc.fontSize(16).text('Invoice', { align: 'center' });
     doc.moveDown();
     doc.text(`Client: ${invoice.clientName}`);
@@ -99,7 +99,7 @@ exports.generatePDF = async (req, res) => {
     doc.text(`Total Amount Due: $${invoice.totalAmountDue}`);
     doc.moveDown();
 
-    // Payment and Additional Information Section
+    // Payment 
     doc.fontSize(14).text('Payment and Additional Information');
     doc.font('Helvetica-Bold');
     doc.text(`Payment Instructions: ${invoice.paymentInstructions}`);
