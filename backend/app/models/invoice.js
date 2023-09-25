@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// Defining the schema for individual line items on the invoice
 const itemSchema = new mongoose.Schema({
   name: String,
   description: String,
@@ -7,13 +8,14 @@ const itemSchema = new mongoose.Schema({
   unitPrice: Number,
 });
 
+// Defining the schema for the entire invoice, including line items
 const invoiceSchema = new mongoose.Schema({
   clientName: String,
   invoiceNumber: String,
   invoiceDate: Date,
   dueDate: Date,
   billingInfo: {
-    yourBusinessInfo: String,
+    businessInfo: String,
     customerInfo: String,
   },
   lineItems: [itemSchema],
@@ -27,6 +29,7 @@ const invoiceSchema = new mongoose.Schema({
   totalAmountDue: Number,
 });
 
+// Creating a model named 'Invoice' based on the 'invoiceSchema'
 module.exports = mongoose.model('Invoice', invoiceSchema);
 
 

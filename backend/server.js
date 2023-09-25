@@ -3,12 +3,14 @@ const mongoose = require("mongoose");
 const app = express();
 require("dotenv").config();
 
-// Middleware
+// Middleware to parse JSON in request body
 app.use(express.json());
 
 // Database Configuration
 const dbConfig = require("./config/database.config.js");
 
+
+// Setting Mongoose to use the global Promise constructor
 mongoose.Promise = global.Promise;
 
 // Connecting to the database
@@ -35,7 +37,7 @@ app.get("/", (req, res) => {
   });
 });
 
-// Import and use routes
+// Routes
 const userRoutes = require("./app/routes/routes.js");
 app.use(userRoutes); 
 
