@@ -1,22 +1,17 @@
 const express = require("express");
-
-// Create express app
+const mongoose = require("mongoose");
 const app = express();
+require("dotenv").config();
 
+// Middleware
+app.use(express.json());
 
 // Database Configuration
 const dbConfig = require("./config/database.config.js");
-const mongoose = require("mongoose");
 
 mongoose.Promise = global.Promise;
 
-
 // Connecting to the database
-mongoose.connect(dbConfig.url, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-
 mongoose
   .connect(dbConfig.url, {
     useNewUrlParser: true,
@@ -40,9 +35,14 @@ app.get("/", (req, res) => {
   });
 });
 
+// Import and use routes
+const userRoutes = require("./app/routes/routes.js");
+app.use(userRoutes); 
+
+const PORT = process.env.PORT || 8081;
 
 // Server Configuration
-const PORT = process.env.PORT || 8081;
 app.listen(PORT, () => {
-  console.log("Server is listening on port ", PORT);
+  console.log("Server is listening on port", PORT);
 });
+
