@@ -1,4 +1,4 @@
-# PdfInvoiceGenerator Web App
+# invoiceGenerator Web App
 *****
 ### Author :
 1. Mugo Joseph Wamiti
