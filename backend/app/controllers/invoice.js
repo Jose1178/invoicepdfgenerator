@@ -75,7 +75,7 @@ exports.generatePDF = async (req, res) => {
     doc.text(`Invoice Number: ${invoice.invoiceNumber}`);
     doc.text(`Invoice Date: ${invoice.invoiceDate}`);
     doc.text(`Due Date: ${invoice.dueDate}`);
-    doc.text(`Billing Name: ${invoice.billingInfo.yourBusinessInfo}`);
+    doc.text(`Billing Name: ${invoice.billingInfo.businessInfo}`);
     doc.text(`Billing Address: ${invoice.billingInfo.customerInfo}`);
     doc.moveDown();
 
