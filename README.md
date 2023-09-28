@@ -16,19 +16,11 @@ This project is a simple web application that generates PDF,  invoices using Nod
 
 ### Getting Started
 1. Clone this repository.
-2. For the frontend:
-- Go to the client/ folder: cd client.
-- Install dependencies: npm install.
-- Start the frontend: npm start.
 
-3. For the backend:
 - Go to the backend/ folder: cd backend.
 - Install dependencies: npm install.
 - Configure your database settings in config.js.
 - Start the backend: npm start.
-
-
-
 
 *****
 ## Dependencies
